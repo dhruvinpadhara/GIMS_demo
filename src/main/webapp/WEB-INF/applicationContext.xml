@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:security="http://www.springframework.org/schema/security"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.1.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+      <property name="url" value="jdbc:mysql://localhost:3306/dynamic_erp" />
+      <property name="username" value="root" />
+      <property name="password" value="" />
+   </bean>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="erpproject" >
+        	
+        </property>
+        	
+        <property name="dataSource" ref="dataSource" />
+        <property name="jpaProperties">
+	         <props>
+	            <prop key="hibernate.hbm2ddl.auto">update</prop>
+	            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+	         </props>
+      	</property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+    <context:annotation-config />
+
+    <tx:annotation-driven />
+
+    <context:component-scan base-package="com.model" />
+
+	<security:authentication-manager>
+    	<security:authentication-provider>
+             <security:jdbc-user-service data-source-ref="dataSource"  
+      users-by-username-query="select username , password, true  from employee where username=?" 
+         authorities-by-username-query="select username ,rid from employee where username=?" 
+  />
+        </security:authentication-provider>
+    </security:authentication-manager>
+				
+				
+ <security:http auto-config="true" use-expressions="true">
+ <security:intercept-url pattern="/" access="isAuthenticated()" /> 
+    <security:form-login login-page="/login.db" username-parameter="username"
+				password-parameter="password"  default-target-url="/index.db"
+				authentication-failure-url="/loginError.db" />
+				 <security:csrf disabled="true"/>
+       <security:logout logout-success-url="/login.db" logout-url="/logout"/>     
+      <!-- <security:intercept-url pattern="/index.db" access="hasRole('ROLE_ADMIN')" /> -->
+     
+  </security:http> 
+ 
+ 
+    <security:global-method-security pre-post-annotations="enabled" />
+    
+       
+
+</beans>

@@ -1,0 +1,193 @@
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+  
+  <tiles-definitions>
+  	
+  		<definition name="masterpage" template="/WEB-INF/jsp/index.jsp">
+  			<put-attribute name="title" value="" />
+  			<put-attribute name="content" value="" />
+  		</definition>
+  		
+  		<definition name="hello" extends="masterpage">
+  			<put-attribute name="title" value="Hello Bhai" />
+  			<put-attribute name="content" value="hello bhai" />
+  		</definition>
+  		
+  						<!-- location -->
+  		
+  		
+  		<definition name="state" extends="masterpage">
+  			<put-attribute name="title" value="State" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/location/state.jsp" />
+  		</definition>
+  		
+  		<definition name="city" extends="masterpage">
+  			<put-attribute name="title" value="City" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/location/city.jsp" />
+  		</definition>
+  		
+  		<definition name="area" extends="masterpage">
+  			<put-attribute name="title" value="Area" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/location/area.jsp" />
+  		</definition>
+  		
+  		<!-- Login -->
+  		
+  		
+  		<definition name="loginpage" template="/WEB-INF/jsp/login/login.jsp"/>
+  		<definition name="login" extends="loginpage" />
+  		
+  		<definition name="Error" template="/WEB-INF/jsp/error/Error.jsp"/>
+  		<definition name="error" extends="Error" />
+  		
+  		<definition name="404" template="/WEB-INF/jsp/error/error404.jsp" />
+		<definition name="error404" extends="404" />
+  							
+  		<definition name="forgetPassword" template="/WEB-INF/jsp/login/forget_password.jsp"/>
+  		<definition name="forget_pass" extends="forgetPassword" />
+  		
+  		<definition name="OneTimePassword" template="/WEB-INF/jsp/login/otp.jsp"/>
+  		<definition name="otp" extends="OneTimePassword" />
+  		
+  		<definition name="confirm_password" template="/WEB-INF/jsp/login/confirm_password.jsp"/>
+  		<definition name="confirm_pass" extends="confirm_password" />
+  		
+  							<!-- ACM -->
+  		
+  		<definition name="role" extends="masterpage">
+  			<put-attribute name="title" value="Role" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/acm/role.jsp" />
+  		</definition>
+  		
+  		<definition name="privilege" extends="masterpage">
+  			<put-attribute name="title" value="Privilege" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/acm/privilege.jsp" />
+  		</definition>
+  		
+  		<definition name="pcomponent" extends="masterpage">
+  			<put-attribute name="title" value="Privilege Component" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/acm/privilege_component.jsp" />
+  		</definition>
+  		
+  		<definition name="pcomponent_of_component" extends="masterpage">
+  			<put-attribute name="title" value="Privilege Component Details" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/acm/pccompofcomp.jsp" />
+  		</definition>
+  		
+  		<definition name="pcompofcomp_details" extends="masterpage">
+  			<put-attribute name="title" value="Privilege Component of Component Details" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/acm/pccompofcomp_details.jsp" />
+  		</definition>
+  		
+  		<definition name="assi_priv_role" extends="masterpage">
+  			<put-attribute name="title" value="Assign Privilege to Role" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/acm/assi_priv_role.jsp" />
+  		</definition>
+  		
+  		<definition name="assi_priv_user" extends="masterpage">
+  			<put-attribute name="title" value="Assign Privilege to User" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/acm/assi_priv_user.jsp" />
+  		</definition>
+  		
+  		<definition name="employee" extends="masterpage">
+  			<put-attribute name="title" value="Employees" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/acm/employee.jsp" />
+  		</definition>
+  		
+  		
+  		<definition name="company" extends="masterpage">
+  			<put-attribute name="title" value="Home" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/acm/company.jsp" />
+  		</definition>
+  	
+  				
+  				<!-- Account -->
+  		<definition name="account_type" extends="masterpage">
+  			<put-attribute name="title" value="Accounts type" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/account/account_type.jsp" />
+  		</definition>
+		
+		<definition name="group" extends="masterpage">
+  			<put-attribute name="title" value="Group type" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/account/group.jsp" />
+  		</definition>
+  		
+  		<definition name="accounts" extends="masterpage">
+  			<put-attribute name="title" value="Accounts" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/account/accounts.jsp" />
+  		</definition>
+  		
+  		<definition name="expense" extends="masterpage">
+  			<put-attribute name="title" value="Accounts" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/account/expense.jsp" />
+  		</definition>
+  		
+  					<!-- material -->
+  		
+  		<definition name="type_work" extends="masterpage">
+  			<put-attribute name="title" value="Types of work" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/material/type_work.jsp" />
+  		</definition>
+  		
+  		
+  		<definition name="item_group" extends="masterpage">
+  			<put-attribute name="title" value="Item group" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/material/item_group.jsp" />
+  		</definition>
+  		
+  		
+  		
+  		<definition name="material" extends="masterpage">
+  			<put-attribute name="title" value="Material" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/material/material.jsp" />
+  		</definition>
+  		
+  		
+  		<definition name="fabric" extends="masterpage">
+  			<put-attribute name="title" value="Fabric" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/material/fabric.jsp" />
+  		</definition>
+  		
+  		<definition name="finish_material" extends="masterpage">
+  			<put-attribute name="title" value="finish material" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/material/finish_material.jsp" />
+  		</definition>
+  		
+  		<definition name="raw_material" extends="masterpage">
+  			<put-attribute name="title" value="Raw material" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/material/raw_material.jsp" />
+  		</definition>
+  		
+  		
+  		
+  		<definition name="material_details" extends="masterpage">
+  			<put-attribute name="title" value="Material details" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/material/material_details.jsp" />
+  		</definition>
+  		
+  		<definition name="unit" extends="masterpage">
+  			<put-attribute name="title" value="Unit" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/material/unit.jsp" />
+  		</definition>
+  			
+		  	
+		  	<!-- transaction -->
+		<definition name="order_estimate" extends="masterpage">
+  			<put-attribute name="title" value="Order Estimate" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/Transaction/order_estimate.jsp" />
+  		</definition>
+  		
+  		<definition name="retail_bill" extends="masterpage">
+  			<put-attribute name="title" value="Retail Bill" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/Transaction/retail_bill.jsp" />
+  		</definition>
+  		
+  		<definition name="tax_bill" extends="masterpage">
+  			<put-attribute name="title" value="Tax Bill" />
+  			<put-attribute name="content" value="/WEB-INF/jsp/Transaction/tax_bill.jsp" />
+  		</definition>
+  		
+  		  	
+		  	
+  </tiles-definitions>
